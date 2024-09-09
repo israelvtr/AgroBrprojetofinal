@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroBR</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .main-header {
+            background-color: #004d00;
+            /* Verde escuro */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-header .header-text {
+            display: inline-block;
+            transition: transform 0.3s ease, font-size 0.3s ease;
+            font-size: 1.5em;
+            /* Ajuste o tamanho da fonte conforme necessário */
+        }
+
+        .main-header .header-text:hover {
+            transform: scale(1.2);
+            font-size: 2em;
+        }
+
+        .main-header .header-text span {
+            display: inline-block;
+        }
+
+        .main-header .header-text .agro {
+            color: #7fd12c;
+            /* Verde cana */
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .main-header .header-text .br {
+            color: white;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            background-image: url('sua-imagem-de-fundo.jpg');
+            /* Imagem de fundo */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 10px 0;
+        }
+
+        .logo-container {
+            margin-left: 10px;
+            flex-shrink: 0;
+            /* Garante que a imagem não encolha */
+        }
+
+        .logo img {
+            height: 50px;
+            /* Ajuste o tamanho da imagem conforme necessário */
+        }
+
+        .nav {
+            display: flex;
+            flex-grow: 1;
+            justify-content: flex-end;
+            gap: 10px;
+            /* Espaço entre os links */
+            background-color: lightgray;
+            /* Fundo cinza para os textos de navegação */
+            padding: 5px 20px;
+            /* Espaço interno vertical e horizontal */
+            border-radius: 5px;
+            /* Bordas arredondadas */
+            margin-left: auto;
+            /* Faz com que o nav ocupe o espaço restante */
+        }
+
+        .nav-item {
+            color: black;
+            background-color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            background-color: rgb(57, 181, 26);
+            color: white;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            /* Centraliza o conteúdo com margem superior e inferior */
+        }
+
+        .content .text {
+            flex: 1;
+            margin-right: 20px;
+            /* Espaço entre o texto e a imagem */
+        }
+
+        .content .text h1 {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .content .image img {
+            width: 100%;
+            /* Ajusta a imagem para ocupar toda a largura disponível */
+            max-width: 200px;
+            /* Define um tamanho máximo para a imagem */
+            height: auto;
+            /* Mantém a proporção da imagem */
+            border-radius: 8px;
+            /* Bordas arredondadas para a imagem */
+        }
+
+        .info-sections {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #75be80;
+            /* Fundo cinza claro */
+            background-image: url()
+        }
+
+        .info-section {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Sombra para destacar as colunas */
+            width: 24%;
+            /* Ajuste a largura das colunas conforme necessário */
+            box-sizing: border-box;
+            /* Inclui padding e bordas no cálculo da largura */
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            /* Espaço entre as colunas na vertical */
+        }
+
+        .info-section img {
+            width: 80px;
+            /* Tamanho da imagem pequena */
+            height: 80px;
+            /* Tamanho da imagem pequena */
+            margin-right: 15px;
+            /* Espaço entre a imagem e o texto */
+            border-radius: 8px;
+            /* Bordas arredondadas para a imagem */
+        }
+
+        .info-section h2 {
+            font-size: 1.2em;
+            font-weight: bold;
+            font-style: italic;
+            margin: 0 0 10px 0;
+            /* Margem para separar o título do texto */
+        }
+
+        .info-section p {
+            margin: 0;
+        }
+
+        .additional-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            /* Espaço entre as colunas */
+            padding: 20px;
+            background-color: #f0f0f0;
+            /* Fundo cinza claro */
+        }
+
+        .additional-info .column {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Sombra para destacar as colunas */
+            width: 24%;
+            /* Ajuste a largura das colunas conforme necessário */
+            box-sizing: border-box;
+            /* Inclui padding e bordas no cálculo da largura */
+            background-image: url('sua-imagem-de-fundo-adicional.jpg');
+            /* Imagem de fundo para cada coluna */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgb(52, 168, 117);
+            /* Cor do texto para contraste com o fundo */
+        }
+
+        .additional-info .column img {
+            width: 80px;
+            /* Tamanho da imagem pequena */
+            height: 80px;
+            /* Tamanho da imagem pequena */
+            margin-bottom: 10px;
+            /* Espaço entre a imagem e o texto */
+            border-radius: 8px;
+            /* Bordas arredondadas para a imagem */
+        }
+
+        .additional-info .column h3 {
+            font-size: 1.2em;
+            font-weight: bold;
+            font-style: italic;
+            margin: 0 0 10px 0;
+            /* Margem para separar o título do texto */
+        }
+
+        .additional-info .column p {
+            margin: 0;
+        }
+
+        .milk-info {
+            background-image: url('https://www.trendsce.com.br/wp-content/uploads/2023/12/agropecuaria-cearense-cresce-e-producao-de-leite-e-destaque-trends-ce-1110x624.jpg');
+            /* Imagem de fundo para a seção de leite */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 40px 20px;
+            /* Espaço interno da seção */
+            color: white;
+            /* Cor do texto para contraste com o fundo */
+            text-align: center;
+            /* Centraliza o texto */
+        }
+
+        .milk-info h2 {
+            font-size: 2em;
+            font-weight: bold;
+            font-style: italic;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .milk-info p {
+            font-size: 1.2em;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .milk-info h2:hover,
+        .milk-info p:hover {
+            color: #1d14d6;
+            /* Verde escuro */
+        }
+
+        .two-columns {
+            display: flex;
+            background-color: #f0f0f0;
+            padding: 20px;
+            gap: 20px;
+            /* Espaço entre as colunas */
+        }
+
+        .column {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            /* Faz com que ambas as colunas ocupem espaço igual */
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            /* Espaço entre o texto e a imagem */
+        }
+
+        .column img {
+            width: 100px;
+            /* Tamanho da imagem */
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .column h3 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .column h3:hover {
+            color: #00cc99;
+            /* Cor ao passar o mouse */
+        }
+
+        .column p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        .three-columns-horizontal {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            gap: 20px;
+            /* Espaço entre as colunas */
+        }
+
+        .three-columns-horizontal .column-horizontal {
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: rgb(255, 0, 0);
+            /* Cor do texto para contraste com o fundo */
+            min-width: 30%;
+            /* Ajuste a largura mínima das colunas */
+            box-sizing: border-box;
+            /* Inclui padding e bordas no cálculo da largura */
+        }
+
+        #cafe {
+            background-image: url(https://tmffertilizantes.com.br/wp-content/uploads/2020/04/WhatsApp-Image-2020-05-04-at-15.31.09-1024x682-1.jpeg);
+            /* Imagem de fundo para a coluna Café */
+        }
+
+        #soja {
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXzm_ensQ8nquudswTMCgxZ1EjfPfku1pRhQ&s);
+            /* Imagem de fundo para a coluna Soja */
+        }
+
+        #milho {
+            background-image: url(https://terramagna.com.br/wp-content/uploads/2022/09/Lavoura-de-milho-agricola-verao.jpg);
+            /* Imagem de fundo para a coluna Milho */
+        }
+
+        .three-columns-horizontal h3 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: rgb(211, 238, 0);
+        }
+
+        .three-columns-horizontal p {
+            font-size: 1em;
+            margin: 0;
+            color: white;
+        }
+
+        .main-header {
+            background-color: #004d00;
+            /* Verde escuro */
+            color: rgb(26, 11, 11);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            /* Adiciona contexto para posicionamento absoluto */
+        }
+
+        .search-container {
+            position: absolute;
+            top: 8%;
+            /* Ajusta para ficar logo abaixo do cabeçalho */
+            right: 10px;
+            transform: translateY(10px);
+            /* Ajusta para um pequeno espaçamento abaixo do cabeçalho */
+            background-color: #004d00;
+            /* Fundo verde escuro */
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-container input[type="text"] {
+            border: none;
+            padding: 10px;
+            border-radius: 25px;
+            outline: none;
+            font-size: 1em;
+            flex: 1;
+            margin-right: 10px;
+            color: white;
+            /* Cor do texto da pesquisa */
+            background-color: transparent;
+            /* Fundo transparente para o input */
+        }
+
+        .search-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-button img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .search-container input[type="text"]::placeholder {
+            color: white;
+            /* Cor do texto do placeholder */
+        }
+
+        /* Estilos para a seção de 3 colunas */
+        .three-columns {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .column {
+            flex: 1;
+            margin: 0 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .column h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .column p {
+            font-size: 1em;
+            margin: 0;
+        }
+
+        /* Estilos para a seção "Quem Somos" */
+        .who-we-are {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f0f0f0;
+            color: #333;
+            margin-top: 40px;
+        }
+
+        .who-we-are h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .who-we-are p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Estilos para o rodapé */
+        .footer {
+            background-color: #004d00;
+            /* Verde escuro */
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            /* Mudança para coluna */
+            align-items: center;
+        }
+
+        .footer .footer-top {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer .logo-footer {
+            flex: 1;
+        }
+
+        .footer .logo-footer img {
+            height: 50px;
+            /* Ajuste conforme necessário */
+        }
+
+        .footer .social-media {
+            flex: 2;
+            text-align: right;
+        }
+
+        .footer .social-media img {
+            width: 24px;
+            /* Ajuste o tamanho dos ícones */
+            height: 24px;
+            margin: 0 10px;
+            /* Espaço entre os ícones */
+        }
+
+        .footer .contact-info {
+            text-align: center;
+        }
+
+        .footer .contact-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-text">
+            <span class="agro">Agro</span><span class="br">BR</span>
+        </div>
+        <!-- Formulário de Pesquisa do Google no Canto Direito do Cabeçalho -->
+    </header>
+    <div class="search-container">
+        <form action="https://www.google.com/search" method="get" target="_blank">
+            <input type="text" name="q" placeholder="Pesquisar...">
+            <button class="search-button" type="submit">
+                <img src="https://img.icons8.com/material-outlined/24/ffffff/search.png" alt="Pesquisar">
+            </button>
+        </form>
+    </div>
+    </header>
+    <div class="nav-container">
+        <div class="logo-container">
+            <img src="Capturas de tela/Captura de tela 2024-09-08 092040.png" alt="Logo">
+        </div>
+        <nav class="nav">
+            <a href id="inicio" class="nav-item">Início</a>
+            <a href="https://www.agrolink.com.br/agrobusca/" class="nav-item">Mercado</a>
+            <a href="https://jornalcana.com.br/ultimas-noticias/" class="nav-item">Últimas Notícias</a>
+            <a href="https://agroagenda.agr.br/eventos/" class="nav-item">Eventos</a>
+            <a href="#quemsomos" class="nav-item">Quem Somos</a>
+            <a href id="Contato" class="nav-item">Contato</a>
+        </nav>
+    </div>
+    <div class="content">
+        <div class="text">
+            <h1>Agropecuária no Brasil</h1>
+            <p>
+                A agropecuária no Brasil desempenha um papel fundamental na economia do país. Com vastas áreas de terras
+                aráveis e um clima favorável para diversas culturas, o Brasil é um dos maiores produtores e exportadores
+                de produtos agropecuários no mundo. A produção inclui uma ampla gama de produtos, desde grãos e cereais
+                até carne e leite, contribuindo significativamente para a segurança alimentar global e a geração de
+                receitas para o país.
+            </p>
+        </div>
+        <div class="image">
+            <img src="Capturas de tela/Captura de tela 2024-09-07 235414.png" alt="Imagem de Agropecuária">
+        </div>
+    </div>
+    <div class="info-sections">
+        <div class="info-section">
+            <img src="Capturas de tela/Captura de tela 2024-09-08 105442.png" alt="Agricultura de Precisão">
+            <div>
+                <h2>Agricultura de Precisão</h2>
+                <p>Utiliza tecnologias como sensores, GPS e drones para otimizar o uso de insumos (fertilizantes,
+                    pesticidas, água) e melhorar a produtividade de maneira mais eficiente e ambientalmente amigável.
+                </p>
+            </div>
+        </div>
+        <div class="info-section">
+            <img src="Capturas de tela/Captura de tela 2024-09-08 113039.png" alt="Saúde Animal">
+            <div>
+                <h2>Saúde Animal</h2>
+                <p>Refere-se ao tratamento ético e adequado dos animais, proporcionando condições de vida que atendam
+                    suas necessidades físicas e comportamentais.</p>
+            </div>
+        </div>
+        <div class="info-section">
+            <img src="Capturas de tela/Captura de tela 2024-09-08 152640.png" alt="Gestão de Recursos Hídricos">
+            <div>
+                <h2>Gestão de Recursos Hídricos</h2>
+                <p>Envolve o uso eficiente da água para a agricultura, incluindo técnicas para preservar e gerenciar
+                    este recurso vital.</p>
+            </div>
+        </div>
+        <div class="info-section">
+            <img src="Capturas de tela/Captura de tela 2024-09-08 153000.png" alt="Tecnologia e Inovação">
+            <div>
+                <h2>Tecnologia e Inovação</h2>
+                <p>Uso de máquinas e equipamentos modernos, como tratores e colhedoras autônomas, para aumentar a
+                    eficiência e a produtividade no campo.</p>
+            </div>
+        </div>
+    </div>
+    <div class="milk-info">
+        <h2>O Leite no Brasil</h2>
+        <p>
+            O Brasil é um dos maiores produtores de leite do mundo, desempenhando um papel crucial na economia agrícola
+            do país. A produção de leite no Brasil é distribuída por diversas regiões, com destaque para o Sul e o
+            Sudeste, onde estão localizadas as principais bacias leiteiras. O setor é responsável pela geração de
+            empregos e pela oferta de produtos lácteos essenciais para a alimentação da população. Além disso, o avanço
+            tecnológico e a melhoria nas práticas de manejo têm contribuído para o aumento da produtividade e a
+            qualidade do leite brasileiro.
+        </p>
+    </div>
+    <div class="two-columns">
+        <div class="column">
+            <img src="https://media.gazetadopovo.com.br/2019/07/12140437/SojaMW2-960x540.jpg" alt="Produção de Grãos">
+            <div>
+                <h3>Produção de Grãos no Brasil</h3>
+                <p>
+                    O Brasil é um dos maiores produtores de grãos do mundo, com destaque para soja, milho e trigo. O
+                    setor agrícola brasileiro é responsável por uma significativa parte da produção global, com a soja
+                    liderando a produção. Em 2023, o Brasil produziu cerca de 130 milhões de toneladas de soja e 100
+                    milhões de toneladas de milho. Esses grãos são fundamentais para a alimentação animal e exportação.
+                    Os principais estados produtores incluem Mato Grosso, Paraná e Rio Grande do Sul.
+                </p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="https://agro.estadao.com.br/app/uploads/2021/10/unnamed-39-optimized.jpg"
+                alt="Agricultura Familiar">
+            <div>
+                <h3>A Importância da Agricultura Familiar</h3>
+                <p>
+                    A agricultura familiar desempenha um papel crucial na economia brasileira. Responsável por cerca de
+                    70% dos alimentos consumidos no país, ela é a base para a produção de hortaliças, frutas e pequenos
+                    grãos. Os agricultores familiares são, em sua maioria, pequenos produtores que vivem no campo e
+                    utilizam métodos tradicionais. Eles contribuem significativamente para a segurança alimentar e a
+                    manutenção das áreas rurais, além de promoverem a biodiversidade e práticas sustentáveis.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Seção das três colunas horizontais -->
+    <div class="three-columns-horizontal">
+        <div class="text" id="cafe">
+            <h3>Café</h3>
+            <p>
+                O café é uma das principais culturas do Brasil e um dos maiores produtos de exportação. O país é o
+                maior produtor e exportador mundial de café, com destaque para o café arábica. A produção de café é
+                concentrada principalmente no estado de Minas Gerais, seguido por São Paulo e Espírito Santo. O clima
+                e o solo brasileiros são ideais para o cultivo de café, o que contribui para a alta qualidade dos grãos.
+            </p>
+        </div>
+        <div class="text" id="soja">
+            <h3>Soja</h3>
+            <p>
+                A soja é um dos principais produtos agrícolas do Brasil, sendo o maior produtor mundial. A soja é
+                fundamental para a produção de óleo e ração animal. O cultivo é predominante no Centro-Oeste, com
+                destaque para o estado de Mato Grosso. O avanço nas técnicas de cultivo e a genética das variedades de
+                soja têm permitido um aumento significativo na produtividade.
+            </p>
+        </div>
+        <div class="text" id="milho">
+            <h3>Milho</h3>
+            <p>
+                O milho é uma cultura importante para a alimentação animal e humana no Brasil. O país está entre os
+                maiores produtores mundiais de milho, com destaque para os estados de Mato Grosso e Goiás. O milho é
+                utilizado na produção de ração animal, farinha e diversos produtos alimentícios. A produção de milho
+                se beneficia de condições climáticas favoráveis e práticas agrícolas modernas.
+            </p>
+        </div>
+    </div>
+    <div class="who-we-are" id="quemsomos">
+        <h2>Quem Somos</h2>
+        <p>
+            O AgroBR é um site dedicado a fornecer informações e notícias atualizadas sobre o setor agropecuário
+            brasileiro. Nosso objetivo é trazer as últimas novidades, tendências e análises sobre a agropecuária,
+            ajudando produtores, profissionais e interessados a se manterem informados sobre as melhores práticas e
+            inovações no campo. Acompanhe nosso conteúdo para estar sempre por dentro do que há de mais relevante no
+            agro brasileiro.
+        </p>
+    </div>
+    <div class="side-column">
+        <p>No nosso site você acompanha tudo clicando no menu no início da página, desde a cotação de produtos agrícolas
+            no mercado, as últimas notícias envolvendo o agro e tudo o relacionado ao Agro.</p>
+        <a href="#inicio" class="back-to-menu">Voltar ao Menu Inicial</a>
+    </div>
+    <footer id="Contato" class="footer">
+        <div class="footer-top">
+            <div class="logo-footer">
+                <img src="Capturas de tela/Captura de tela 2024-09-08 092040.png" alt="Logo">
+            </div>
+            <div class="social-media">
+                <a href="https://www.instagram.com/canalrural/" target="_blank">
+                    <img src="data:image/jpeg;base64,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" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/canalrural/" target="_blank">
+                    <img src="https://e7.pngegg.com/pngimages/335/1001/png-clipart-social-media-facebook-computer-icons-social-network-linkedin-text-logo-internet.png"
+                        alt="Facebook">
+                </a>
+                <a href="https://www.youtube.com/user/canalProcanaBrasil" target="_blank">
+                    <img src="https://img.icons8.com/material-outlined/24/ffffff/youtube-play.png" alt="YouTube">
+                </a>
+                <a href="https://www.google.com/maps/place/Centro,+Uberl%C3%A2ndia+-+MG/@-18.9165107,-48.2864658,15z/data=!3m1!4b1!4m6!3m5!1s0x94a445aada9bfd7f:0x49cb222d8986cde3!8m2!3d-18.9161831!4d-48.2743202!16s%2Fg%2F1ymt6rjqh?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                    <img src="data:image/jpeg;base64,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"
+                        alt="Maps">
+                </a>
+                <a href="mailto:example@example.com">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrIlnK2H1OUyHmvnq0pG1d2Vt5YJOFxnnW4g&s"
+                        alt="Gmail">
+                </a>
+            </div>
+        </div>
+        <div class="contact-info">
+            <p><strong>Telefone:</strong> (34) 1234-5678</p>
+            <p><strong>Endereço:</strong> AV, Getúlio Vargas 123, Centro, Uberlândia - MG, 38400-000</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
